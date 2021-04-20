@@ -1,9 +1,11 @@
 package Pr2_SWII.soap;
 
 import javax.jws.WebMethod;
+import javax.jws.WebService;
 
 import pojos.Recetario;
 
+@WebService(serviceName = "RecetarioService")
 public class Methods {
 
 	@WebMethod(operationName = "hello")
