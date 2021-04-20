@@ -1,4 +1,4 @@
-package Pr2_SWII;
+package Pr2_SWII.soap;
 
 public class Methods {
 
