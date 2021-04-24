@@ -1,4 +1,4 @@
-package com.cliente_recetario.cliente_soap;
+package com.cliente_recetario.cliente_soap2;
 
 import static org.junit.Assert.assertTrue;
 
