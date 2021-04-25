@@ -3,21 +3,20 @@ package com.cliente_recetario.cliente_soap.ws.client.generated;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para iniciarResponse complex type.
+ * <p>Clase Java para importarReceta complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="iniciarResponse"&gt;
+ * &lt;complexType name="importarReceta"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="return" type="{http://soap.Pr2_SWII/}recetario" minOccurs="0"/&gt;
+ *         &lt;element name="ruta" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -27,36 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "iniciarResponse", propOrder = {
-    "_return"
+@XmlType(name = "importarReceta", propOrder = {
+    "ruta"
 })
-public class IniciarResponse {
+public class ImportarReceta {
 
-    @XmlElement(name = "return")
-    protected Recetario _return;
+    protected String ruta;
 
     /**
-     * Obtiene el valor de la propiedad return.
+     * Obtiene el valor de la propiedad ruta.
      * 
      * @return
      *     possible object is
-     *     {@link Recetario }
+     *     {@link String }
      *     
      */
-    public Recetario getReturn() {
-        return _return;
+    public String getRuta() {
+        return ruta;
     }
 
     /**
-     * Define el valor de la propiedad return.
+     * Define el valor de la propiedad ruta.
      * 
      * @param value
      *     allowed object is
-     *     {@link Recetario }
+     *     {@link String }
      *     
      */
-    public void setReturn(Recetario value) {
-        this._return = value;
+    public void setRuta(String value) {
+        this.ruta = value;
     }
 
 }

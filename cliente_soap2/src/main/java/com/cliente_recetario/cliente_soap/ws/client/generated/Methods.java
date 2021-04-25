@@ -2,6 +2,7 @@
 package com.cliente_recetario.cliente_soap.ws.client.generated;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -26,18 +27,141 @@ public interface Methods {
 
     /**
      * 
+     * @param path
+     * @param nombreReceta
+     * @return
+     *     returns java.lang.String
+     * @throws JAXBException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "exportarReceta", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.ExportarReceta")
+    @ResponseWrapper(localName = "exportarRecetaResponse", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.ExportarRecetaResponse")
+    @Action(input = "http://soap.Pr2_SWII/Methods/exportarRecetaRequest", output = "http://soap.Pr2_SWII/Methods/exportarRecetaResponse", fault = {
+        @FaultAction(className = JAXBException_Exception.class, value = "http://soap.Pr2_SWII/Methods/exportarReceta/Fault/JAXBException")
+    })
+    public String exportarReceta(
+        @WebParam(name = "nombreReceta", targetNamespace = "")
+        String nombreReceta,
+        @WebParam(name = "path", targetNamespace = "")
+        String path)
+        throws JAXBException_Exception
+    ;
+
+    /**
+     * 
+     * @param ruta
+     * @return
+     *     returns java.lang.String
+     * @throws JAXBException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "importarRecetario", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.ImportarRecetario")
+    @ResponseWrapper(localName = "importarRecetarioResponse", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.ImportarRecetarioResponse")
+    @Action(input = "http://soap.Pr2_SWII/Methods/importarRecetarioRequest", output = "http://soap.Pr2_SWII/Methods/importarRecetarioResponse", fault = {
+        @FaultAction(className = JAXBException_Exception.class, value = "http://soap.Pr2_SWII/Methods/importarRecetario/Fault/JAXBException")
+    })
+    public String importarRecetario(
+        @WebParam(name = "ruta", targetNamespace = "")
+        String ruta)
+        throws JAXBException_Exception
+    ;
+
+    /**
+     * 
+     * @param ruta
+     * @return
+     *     returns java.lang.String
+     * @throws JAXBException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "importarReceta", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.ImportarReceta")
+    @ResponseWrapper(localName = "importarRecetaResponse", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.ImportarRecetaResponse")
+    @Action(input = "http://soap.Pr2_SWII/Methods/importarRecetaRequest", output = "http://soap.Pr2_SWII/Methods/importarRecetaResponse", fault = {
+        @FaultAction(className = JAXBException_Exception.class, value = "http://soap.Pr2_SWII/Methods/importarReceta/Fault/JAXBException")
+    })
+    public String importarReceta(
+        @WebParam(name = "ruta", targetNamespace = "")
+        String ruta)
+        throws JAXBException_Exception
+    ;
+
+    /**
+     * 
      * @return
      *     returns com.cliente_recetario.cliente_soap.ws.client.generated.Recetario
      * @throws JAXBException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "iniciar", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.Iniciar")
-    @ResponseWrapper(localName = "iniciarResponse", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.IniciarResponse")
-    @Action(input = "http://soap.Pr2_SWII/Methods/iniciarRequest", output = "http://soap.Pr2_SWII/Methods/iniciarResponse", fault = {
-        @FaultAction(className = JAXBException_Exception.class, value = "http://soap.Pr2_SWII/Methods/iniciar/Fault/JAXBException")
+    @RequestWrapper(localName = "obtenerRecetario", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.ObtenerRecetario")
+    @ResponseWrapper(localName = "obtenerRecetarioResponse", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.ObtenerRecetarioResponse")
+    @Action(input = "http://soap.Pr2_SWII/Methods/obtenerRecetarioRequest", output = "http://soap.Pr2_SWII/Methods/obtenerRecetarioResponse", fault = {
+        @FaultAction(className = JAXBException_Exception.class, value = "http://soap.Pr2_SWII/Methods/obtenerRecetario/Fault/JAXBException")
     })
-    public Recetario iniciar()
+    public Recetario obtenerRecetario()
+        throws JAXBException_Exception
+    ;
+
+    /**
+     * 
+     * @param nombre
+     * @return
+     *     returns com.cliente_recetario.cliente_soap.ws.client.generated.Receta
+     * @throws JAXBException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerReceta", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.ObtenerReceta")
+    @ResponseWrapper(localName = "obtenerRecetaResponse", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.ObtenerRecetaResponse")
+    @Action(input = "http://soap.Pr2_SWII/Methods/obtenerRecetaRequest", output = "http://soap.Pr2_SWII/Methods/obtenerRecetaResponse", fault = {
+        @FaultAction(className = JAXBException_Exception.class, value = "http://soap.Pr2_SWII/Methods/obtenerReceta/Fault/JAXBException")
+    })
+    public Receta obtenerReceta(
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre)
+        throws JAXBException_Exception
+    ;
+
+    /**
+     * 
+     * @param receta
+     * @return
+     *     returns java.lang.String
+     * @throws JAXBException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "generarReceta", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.GenerarReceta")
+    @ResponseWrapper(localName = "generarRecetaResponse", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.GenerarRecetaResponse")
+    @Action(input = "http://soap.Pr2_SWII/Methods/generarRecetaRequest", output = "http://soap.Pr2_SWII/Methods/generarRecetaResponse", fault = {
+        @FaultAction(className = JAXBException_Exception.class, value = "http://soap.Pr2_SWII/Methods/generarReceta/Fault/JAXBException")
+    })
+    public String generarReceta(
+        @WebParam(name = "receta", targetNamespace = "")
+        Receta receta)
+        throws JAXBException_Exception
+    ;
+
+    /**
+     * 
+     * @param path
+     * @return
+     *     returns java.lang.String
+     * @throws JAXBException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "exportarRecetario", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.ExportarRecetario")
+    @ResponseWrapper(localName = "exportarRecetarioResponse", targetNamespace = "http://soap.Pr2_SWII/", className = "com.cliente_recetario.cliente_soap.ws.client.generated.ExportarRecetarioResponse")
+    @Action(input = "http://soap.Pr2_SWII/Methods/exportarRecetarioRequest", output = "http://soap.Pr2_SWII/Methods/exportarRecetarioResponse", fault = {
+        @FaultAction(className = JAXBException_Exception.class, value = "http://soap.Pr2_SWII/Methods/exportarRecetario/Fault/JAXBException")
+    })
+    public String exportarRecetario(
+        @WebParam(name = "path", targetNamespace = "")
+        String path)
         throws JAXBException_Exception
     ;
 

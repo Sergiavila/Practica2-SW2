@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <recetario>
-	<receta dificultad="fácil" tipo="mediterranea">
+	<receta dificultad="facil" tipo="mediterranea">
 		<nombreReceta>Ensalada de maíz y pollo</nombreReceta>
 		<ingredientes>
 			<ingrediente>
@@ -83,7 +83,7 @@
 	  Listo para servir
     </instrucciones>
 	</receta>
-	<receta dificultad="fácil" tipo="mediterranea">
+	<receta dificultad="facil" tipo="mediterranea">
 		<nombreReceta>San Jacobo casero</nombreReceta>
 		<ingredientes>
 			<ingrediente>

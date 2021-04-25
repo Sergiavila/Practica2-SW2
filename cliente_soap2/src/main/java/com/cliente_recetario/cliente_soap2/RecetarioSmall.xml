@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recetario>
+	<receta dificultad="media" tipo="mediterranea">
+		<nombreReceta>Crema de calabaza</nombreReceta>
+		<ingredientes>
+			<ingrediente>
+				<nombreIngrediente> Calabaza pelada </nombreIngrediente>
+				<cantidad>500 gramos</cantidad>
+			</ingrediente>
+			<ingrediente>
+				<nombreIngrediente>Eneldo</nombreIngrediente>
+				<cantidad>1 unidad</cantidad>
+			</ingrediente>
+			<ingrediente>
+				<nombreIngrediente>Caldo de verduras</nombreIngrediente>
+				<cantidad>400-500ml</cantidad>
+			</ingrediente>
+			<ingrediente>
+				<nombreIngrediente>Nata líquida</nombreIngrediente>
+				<cantidad>1 unidad</cantidad>
+			</ingrediente>
+		</ingredientes>
+		<instrucciones>
+      Colocar la calabaza en trozos en una cacelora y añadir el eneldo sin tallos
+	  Se añade el caldo de verduras
+	  Cuando empiece a hervir, se baja a temperatura suave durante alrededor de 20 minutos
+	  Cuando la calabaza este tierna, se saca y se tritura
+	  Listo para servir
+    </instrucciones>
+	</receta>
+</recetario>

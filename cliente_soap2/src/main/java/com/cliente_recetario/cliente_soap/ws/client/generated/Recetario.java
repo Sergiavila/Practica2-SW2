@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -29,11 +28,11 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "recetario")
+@XmlType(name = "recetario", propOrder = {
+    "receta"
+})
 public class Recetario {
-	@XmlElement(name = "receta")
-	private List<Receta> recetas;
-	
+
     protected List<Receta> receta;
 
     /**
@@ -64,9 +63,5 @@ public class Recetario {
         }
         return this.receta;
     }
-    
-    public String toString() {
-		return "Recetario:" + recetas.toString();
-	}
 
 }

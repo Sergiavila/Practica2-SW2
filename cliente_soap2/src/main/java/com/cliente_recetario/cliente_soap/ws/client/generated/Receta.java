@@ -177,11 +177,6 @@ public class Receta {
     public void setTipo(String value) {
         this.tipo = value;
     }
-    
-    public String toString() {
-		return "\n\nReceta:"+ "\n (dificultad= " + dificultad + ", tipo= " + tipo + ")" +"\n nombreReceta= " + nombreReceta
-				+ "\n ingredientes:" + ingredientes + "\n instrucciones= " + instrucciones;
-	}
 
 
     /**
