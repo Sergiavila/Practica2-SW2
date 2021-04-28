@@ -29,15 +29,15 @@ public class Methods {
 	}
 	 */
 	
-	
+	Recetario r1 = new Recetario();
 	@WebMethod(operationName = "obtenerRecetario")
 	public Recetario obtenerRecetario() throws JAXBException {
 		
 		JAXBContext jaxbC = JAXBContext.newInstance(Recetario.class);
 		Unmarshaller jaxbU = jaxbC.createUnmarshaller();
 		File XMLfile = new File("C:/Users/Sergio/Desktop/Universidad/4ºAño/SW2/Practica2/Pr2_SWII/Recetario.xml");
-		Recetario rec1 = (Recetario) jaxbU.unmarshal(XMLfile);
-		return rec1;
+		Recetario r1 = (Recetario) jaxbU.unmarshal(XMLfile);
+		return r1;
 		
 	}
 	
@@ -101,8 +101,18 @@ public class Methods {
     	JAXBContext jaxbC = JAXBContext.newInstance(Recetario.class);
     	Unmarshaller jaxbU = jaxbC.createUnmarshaller();
     	File fichero = new File(ruta);
-    	Recetario rec1 = (Recetario) jaxbU.unmarshal(fichero);
+        r1 = (Recetario) jaxbU.unmarshal(fichero);
+    	JAXBContext jaxbC1 = JAXBContext.newInstance(Recetario.class);
+          // Creamos el JAXBMarshaller
+        Marshaller jaxbM = jaxbC1.createMarshaller();
+          // Formateo bonito
+        jaxbM.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,Boolean.TRUE);
+          //jaxbM.setProperty("com.sun.xml.bind.xmlDeclaration", false);
+          // Escribiendo en un fichero
+        File XMLfile = new File("C:/Users/Sergio/Desktop/Universidad/4ºAño/SW2/Practica2/Pr2_SWII/Recetario.xml");
+        jaxbM.marshal(r1, XMLfile);
     	// TODO: llamar al primer metodo (marshaller) con input=(rec1)
+    	
     	return "Recetario importado";
     }
 
