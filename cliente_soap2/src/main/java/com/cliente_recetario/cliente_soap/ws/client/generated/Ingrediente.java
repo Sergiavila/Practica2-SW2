@@ -83,5 +83,10 @@ public class Ingrediente {
     public void setCantidad(String value) {
         this.cantidad = value;
     }
+    
+    public String toString() {
+		return "\n\tIngrediente: [nombreIngrediente=" + nombreIngrediente + ", cantidad=" + cantidad + "]";
+	}
 
 }
+

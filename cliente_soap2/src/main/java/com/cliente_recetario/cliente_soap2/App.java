@@ -22,18 +22,18 @@ public class App
         
         // case 0
         
-	    Recetario recetario = methods.obtenerRecetario();
-	    System.out.println(recetario.toString());
+	    /*Recetario recetario = methods.obtenerRecetario();
+	    System.out.println(recetario);*/
     	
         
         // case 1
-        /*
-        Receta receta = methods.obtenerReceta("Crema de calabaza");
-	    System.out.println(receta.toString());
-    	*/
+        
+       /* Receta receta = methods.obtenerReceta("Crema de calabaza");
+	    System.out.println(receta);*/
+    	
         
         // case 2
-        /*
+        Recetario recetario = new Recetario();
         Receta r1 = new Receta();
         r1.setDificultad("facil");
         r1.setTipo("mediterranea");
@@ -49,14 +49,16 @@ public class App
         ingredientes.add(i1); ingredientes.add(i2);
         // TODO: (SIEMPRE, NO BORRAR) en Receta.java: find-replace( Receta.Ingredientes -> ArrayList<Ingrediente>)
         r1.setIngredientes(ingredientes);
-        methods.generarReceta(r1);
-        */
+        recetario = methods.generarReceta(r1);
+        System.out.println(recetario);
+        
+        
         
         // case 3 (exportar recetario)
-	    /*
-	    String mensaje = methods.exportarRecetario("./RecetarioExportado.xml");
-	    System.out.println(mensaje);
-	    */
+	    
+	    /*String mensaje = methods.exportarRecetario("C:/Users/Sergio/Desktop/Universidad/4ºAño/SW2/Practica2/Pr2_SWII/RecetarioExportado.xml");
+	    System.out.println(mensaje);*/
+	    
 	    
 	    // case 3.1 (exportar receta)
 	    /*

@@ -5,7 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+
+
+
 
 
 /**
@@ -28,11 +32,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "recetario", propOrder = {
-    "receta"
-})
+@XmlType(name = "recetario")
 public class Recetario {
-
+	@XmlElement(name = "receta")
+	private List<Receta> recetas;
     protected List<Receta> receta;
 
     /**
@@ -63,5 +66,17 @@ public class Recetario {
         }
         return this.receta;
     }
+	public void setRecetas(ArrayList<Receta> recetas) {
+		this.recetas = recetas;
+	}
+    
+    public void addReceta(Receta r) {
+		if(!recetas.contains(r))
+			recetas.add(r);
+	}
+    public String toString() {
+  		return "Recetario:" + recetas.toString();
+  	}
+    
 
 }

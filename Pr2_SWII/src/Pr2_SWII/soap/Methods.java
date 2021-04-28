@@ -35,7 +35,7 @@ public class Methods {
 		
 		JAXBContext jaxbC = JAXBContext.newInstance(Recetario.class);
 		Unmarshaller jaxbU = jaxbC.createUnmarshaller();
-		File XMLfile = new File("/Users/carlospalomorey/Desktop/Recetario.xml");
+		File XMLfile = new File("C:/Users/Sergio/Desktop/Universidad/4∫AÒo/SW2/Practica2/Pr2_SWII/Recetario.xml");
 		Recetario rec1 = (Recetario) jaxbU.unmarshal(XMLfile);
 		return rec1;
 		
@@ -50,11 +50,11 @@ public class Methods {
 	}
 	
 	@WebMethod(operationName = "generarReceta")
-	public String generarReceta(@WebParam(name = "receta") Receta receta) throws JAXBException{
+	public Recetario generarReceta(@WebParam(name = "receta") Receta receta) throws JAXBException{
 		Recetario recetario = obtenerRecetario();
 		recetario.addReceta(receta);
 		// TODO: llamar al primer metodo (marshaller) con input=(recetario)
-		return "Receta a√±adida";
+		return recetario;
 	}
 	
 	
