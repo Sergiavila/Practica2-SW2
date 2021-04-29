@@ -1,17 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<recetario>
-    <receta dificultad="Fácil" tipo="Americana">
-        <nombreReceta>Hot Dog</nombreReceta>
-        <ingredientes>
-            <ingrediente>
-                <nombreIngrediente>Salchicha</nombreIngrediente>
-                <cantidad>2</cantidad>
-            </ingrediente>
-            <ingrediente>
-                <nombreIngrediente>Pan de Perrito</nombreIngrediente>
-                <cantidad>1</cantidad>
-            </ingrediente>
-        </ingredientes>
-        <instrucciones>Meter las salchichas en el pan</instrucciones>
-    </receta>
-</recetario>
+<recetario/>

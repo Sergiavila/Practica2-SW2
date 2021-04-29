@@ -23,10 +23,11 @@ public class Methods {
 	
 	 */
 	
-	Recetario r1 = new Recetario();
+	
 	
 	@WebMethod(operationName = "iniciarRecetario")
 	public Recetario inicializarRecetario() throws JAXBException {
+		Recetario r1 = new Recetario();
 		JAXBContext jaxbC1 = JAXBContext.newInstance(Recetario.class);
         // Creamos el JAXBMarshaller
 		Marshaller jaxbM = jaxbC1.createMarshaller();
@@ -47,39 +48,42 @@ public class Methods {
 		Unmarshaller jaxbU = jaxbC.createUnmarshaller();
 		String directorio = System.getProperty("user.dir");
         File XMLfile = new File( directorio + "/Recetario.xml");
-		r1 = (Recetario) jaxbU.unmarshal(XMLfile);
-		return r1;
+		Recetario recetario = (Recetario) jaxbU.unmarshal(XMLfile);
+		return recetario;
 		
 	}
 	
 	
 	@WebMethod(operationName = "obtenerReceta")
 	public Receta obtenerReceta(@WebParam(name = "nombre") String nombre) throws JAXBException{
-		Receta receta = r1.buscarReceta(nombre);
+		Recetario recetario = obtenerRecetario();
+		Receta receta = recetario.buscarReceta(nombre);
 		return receta;
 	}
 	
 	@WebMethod(operationName = "generarReceta")
 	public Recetario generarReceta(@WebParam(name = "receta") Receta receta) throws JAXBException{
-		r1.addReceta(receta);
-		JAXBContext jaxbC1 = JAXBContext.newInstance(Recetario.class);
-        // Creamos el JAXBMarshaller
-		Marshaller jaxbM = jaxbC1.createMarshaller();
-        // Formateo bonito
-		jaxbM.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,Boolean.TRUE);
-        //jaxbM.setProperty("com.sun.xml.bind.xmlDeclaration", false);
-        // Escribiendo en un fichero
-		String directorio = System.getProperty("user.dir");
+		Recetario recetario = obtenerRecetario();
+		recetario.addReceta(receta);
+		JAXBContext jaxbC = JAXBContext.newInstance(Receta.class);
+	        // Creamos el JAXBMarshaller
+	    Marshaller jaxbM = jaxbC.createMarshaller();
+	        // Formateo bonito
+	    jaxbM.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,Boolean.TRUE);
+	        // jaxbM.setProperty("com.sun.xml.bind.xmlDeclaration", false);
+	        // Escribiendo en un fichero
+	    String directorio = System.getProperty("user.dir");
 		File XMLfile = new File( directorio + "/Recetario.xml");
-		jaxbM.marshal(r1, XMLfile);
+	    jaxbM.marshal(recetario, XMLfile);
 		// TODO: llamar al primer metodo (marshaller) con input=(recetario)
-		return r1;
+		return recetario;
 	}
 	
 	
 	
 	@WebMethod(operationName = "exportarRecetario")
 	public String exportarRecetario(@WebParam(name = "path") String path) throws JAXBException {
+		Recetario rec = obtenerRecetario();
         // Creamos el JAXBContext
         JAXBContext jaxbC = JAXBContext.newInstance(Recetario.class);
         // Creamos el JAXBMarshaller
@@ -89,7 +93,7 @@ public class Methods {
         //jaxbM.setProperty("com.sun.xml.bind.xmlDeclaration", false);
         // Escribiendo en un fichero
         File XMLfile = new File(path);
-        jaxbM.marshal(r1, XMLfile);
+        jaxbM.marshal(rec, XMLfile);
         // Escribiendo por pantalla
         //jaxbM.marshal(book, System.out);
         return "Recetario exportado";
@@ -119,7 +123,7 @@ public class Methods {
     	JAXBContext jaxbC = JAXBContext.newInstance(Recetario.class);
     	Unmarshaller jaxbU = jaxbC.createUnmarshaller();
     	File fichero = new File(ruta);
-        r1 = (Recetario) jaxbU.unmarshal(fichero);
+        Recetario r1 = (Recetario) jaxbU.unmarshal(fichero);
     	JAXBContext jaxbC1 = JAXBContext.newInstance(Recetario.class);
           // Creamos el JAXBMarshaller
         Marshaller jaxbM = jaxbC1.createMarshaller();
@@ -137,7 +141,8 @@ public class Methods {
 
 	@WebMethod(operationName = "importarReceta")
     public String importarReceta(@WebParam(name = "ruta") String ruta) throws JAXBException {
-    	JAXBContext jaxbC = JAXBContext.newInstance(Receta.class);
+		Recetario r1 = new Recetario();
+		JAXBContext jaxbC = JAXBContext.newInstance(Receta.class);
     	Unmarshaller jaxbU = jaxbC.createUnmarshaller();
     	File fichero = new File(ruta);
     	Receta rec1 = (Receta) jaxbU.unmarshal(fichero);
