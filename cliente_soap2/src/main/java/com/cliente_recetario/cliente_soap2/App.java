@@ -92,7 +92,6 @@ public class App
 		entrada = new Scanner(System.in);
 		Recetario rec = new Recetario();
 		Receta receta = new Receta();
-		Receta recete = new Receta();
 		while(opcion!=9) {
 			System.out.println("Bienvenido a su recetario\n" + "¿Qué desea hacer?\n");
 			System.out.println("1. Crear Recetario\n");
@@ -110,8 +109,9 @@ public class App
 			
 			switch(opcion) {
 			case(1):
-				System.out.println("Iniciando recetario por defecto...\n");
-				System.out.println("Importación correcta\n");
+				System.out.println("Iniciando recetario vacío...\n");
+				methods.iniciarRecetario();
+				System.out.println("Recetario iniciado\n");
 				break;
 			case(2):
 				System.out.println("Obteniendo Recetario...\n");
@@ -119,8 +119,10 @@ public class App
 		    	System.out.println(rec);
 				break;
 			case(3):
-				System.out.println("Obteniendo Receta\n");
-				receta = methods.obtenerReceta("Crema de calabaza");
+				System.out.println("Indica el nombre de la receta que quiera visualizar\n");
+				String nombre = br.readLine();
+				System.out.println("Obteniendo Receta...\n");
+				receta = methods.obtenerReceta(nombre);
 				System.out.println(receta);
 				break;
 			case (4):
@@ -161,30 +163,37 @@ public class App
 				rec = methods.generarReceta(r1);
 				break;
 			case(5):
+				System.out.println("Introduce el nombre del archivo para exportar el contenido (empezando por /)\n");
+				String ruta = br.readLine();	
 				System.out.println("Exportando Recetario...\n");
-				String ruta = br.readLine();			
-				String mensaje = methods.exportarRecetario(ruta);
+				String directorio = System.getProperty("user.dir");
+				String mensaje = methods.exportarRecetario( directorio + ruta);
 			    System.out.println(mensaje);
 				break;
 			case(6):
-				System.out.println("Exportando Receta\n");
+				System.out.println("Introduce el nombre de la receta y el nombre del archivo para exportar el contenido (empezando por /)\n");
 				String ruta1 = br.readLine();
-				String mensajeReceta = methods.exportarReceta("Crema de calabaza" , ruta1);
+				String nombre1 = br.readLine();
+				System.out.println("Exportando Receta\n");
+				String directorio1 = System.getProperty("user.dir");
+				String mensajeReceta = methods.exportarReceta(nombre1 , directorio1 + ruta1);
 			    System.out.println(mensajeReceta);
 				
 				break;
 				
 			case(7):
-				System.out.println("Introduzca ruta para importar Recetario\n");
+				System.out.println("Introduzca la ruta absoluta para importar Recetario\n");
 				String ruta2 = br.readLine();
+				System.out.println("Importando Recetario...\n");
 				String mensajeImportar = methods.importarRecetario(ruta2);
 			    System.out.println(mensajeImportar);
 				
 				break;
 
 			case(8):
-				System.out.println("Importando Receta\n");
+				System.out.println("Introduzca la ruta absoluta para importar la Receta\n");
 				String ruta3 = br.readLine();
+				System.out.println("Importando Receta...\n");
 				String mensajeImR = methods.importarReceta(ruta3);
 				System.out.println(mensajeImR);
 				break;

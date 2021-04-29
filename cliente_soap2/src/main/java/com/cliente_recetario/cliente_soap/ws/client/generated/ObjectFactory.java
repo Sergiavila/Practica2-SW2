@@ -36,6 +36,8 @@ public class ObjectFactory {
     private final static QName _ImportarRecetario_QNAME = new QName("http://soap.Pr2_SWII/", "importarRecetario");
     private final static QName _ImportarRecetarioResponse_QNAME = new QName("http://soap.Pr2_SWII/", "importarRecetarioResponse");
     private final static QName _Ingrediente_QNAME = new QName("http://soap.Pr2_SWII/", "ingrediente");
+    private final static QName _IniciarRecetario_QNAME = new QName("http://soap.Pr2_SWII/", "iniciarRecetario");
+    private final static QName _IniciarRecetarioResponse_QNAME = new QName("http://soap.Pr2_SWII/", "iniciarRecetarioResponse");
     private final static QName _ObtenerReceta_QNAME = new QName("http://soap.Pr2_SWII/", "obtenerReceta");
     private final static QName _ObtenerRecetaResponse_QNAME = new QName("http://soap.Pr2_SWII/", "obtenerRecetaResponse");
     private final static QName _ObtenerRecetario_QNAME = new QName("http://soap.Pr2_SWII/", "obtenerRecetario");
@@ -152,6 +154,22 @@ public class ObjectFactory {
      */
     public Ingrediente createIngrediente() {
         return new Ingrediente();
+    }
+
+    /**
+     * Create an instance of {@link IniciarRecetario }
+     * 
+     */
+    public IniciarRecetario createIniciarRecetario() {
+        return new IniciarRecetario();
+    }
+
+    /**
+     * Create an instance of {@link IniciarRecetarioResponse }
+     * 
+     */
+    public IniciarRecetarioResponse createIniciarRecetarioResponse() {
+        return new IniciarRecetarioResponse();
     }
 
     /**
@@ -372,6 +390,32 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://soap.Pr2_SWII/", name = "ingrediente")
     public JAXBElement<Ingrediente> createIngrediente(Ingrediente value) {
         return new JAXBElement<Ingrediente>(_Ingrediente_QNAME, Ingrediente.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link IniciarRecetario }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link IniciarRecetario }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://soap.Pr2_SWII/", name = "iniciarRecetario")
+    public JAXBElement<IniciarRecetario> createIniciarRecetario(IniciarRecetario value) {
+        return new JAXBElement<IniciarRecetario>(_IniciarRecetario_QNAME, IniciarRecetario.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link IniciarRecetarioResponse }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link IniciarRecetarioResponse }{@code >}
+     */
+    @XmlElementDecl(namespace = "http://soap.Pr2_SWII/", name = "iniciarRecetarioResponse")
+    public JAXBElement<IniciarRecetarioResponse> createIniciarRecetarioResponse(IniciarRecetarioResponse value) {
+        return new JAXBElement<IniciarRecetarioResponse>(_IniciarRecetarioResponse_QNAME, IniciarRecetarioResponse.class, null, value);
     }
 
     /**
