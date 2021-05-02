@@ -163,19 +163,19 @@ public class App
 				rec = methods.generarReceta(r1);
 				break;
 			case(5):
-				System.out.println("Introduce el nombre del archivo para exportar el contenido (empezando por /)\n");
+				System.out.println("Introduce el nombre del archivo para exportar el contenido (empezando por /Recursos)\n");
 				String ruta = br.readLine();	
 				System.out.println("Exportando Recetario...\n");
-				String directorio = System.getProperty("user.dir");
+				String directorio = System.getProperty("user.home");
 				String mensaje = methods.exportarRecetario( directorio + ruta);
 			    System.out.println(mensaje);
 				break;
 			case(6):
-				System.out.println("Introduce el nombre de la receta y el nombre del archivo para exportar el contenido (empezando por /)\n");
+				System.out.println("Introduce el nombre de la receta y el nombre del archivo para exportar el contenido (empezando por /Recursos)\n");
 				String ruta1 = br.readLine();
 				String nombre1 = br.readLine();
 				System.out.println("Exportando Receta\n");
-				String directorio1 = System.getProperty("user.dir");
+				String directorio1 = System.getProperty("user.home");
 				String mensajeReceta = methods.exportarReceta(nombre1 , directorio1 + ruta1);
 			    System.out.println(mensajeReceta);
 				

@@ -35,8 +35,11 @@ public class Methods {
 		jaxbM.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,Boolean.TRUE);
         //jaxbM.setProperty("com.sun.xml.bind.xmlDeclaration", false);
         // Escribiendo en un fichero
-		String directorio = System.getProperty("user.dir");
-		File XMLfile = new File( directorio + "/Recetario.xml");
+		String directorio = System.getProperty("user.home");
+		File carpeta = new File(directorio + "/Recursos");
+		carpeta.mkdir();
+		String directorio2 = carpeta.getAbsolutePath();
+		File XMLfile = new File( directorio2 + "/Recetario.xml");
 		jaxbM.marshal(r1, XMLfile);
 		return r1;
 		
@@ -46,8 +49,8 @@ public class Methods {
 		
 		JAXBContext jaxbC = JAXBContext.newInstance(Recetario.class);
 		Unmarshaller jaxbU = jaxbC.createUnmarshaller();
-		String directorio = System.getProperty("user.dir");
-        File XMLfile = new File( directorio + "/Recetario.xml");
+		String directorio = System.getProperty("user.home");
+        File XMLfile = new File( directorio + "/Recursos/Recetario.xml");
 		Recetario recetario = (Recetario) jaxbU.unmarshal(XMLfile);
 		return recetario;
 		
@@ -72,9 +75,9 @@ public class Methods {
 	    jaxbM.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,Boolean.TRUE);
 	        // jaxbM.setProperty("com.sun.xml.bind.xmlDeclaration", false);
 	        // Escribiendo en un fichero
-	    String directorio = System.getProperty("user.dir");
-		File XMLfile = new File( directorio + "/Recetario.xml");
-	    jaxbM.marshal(recetario, XMLfile);
+	    String directorio = System.getProperty("user.home");
+		File XMLfile = new File( directorio + "/Recursos/Recetario.xml");
+	    jaxbM.marshal(receta, XMLfile);
 		// TODO: llamar al primer metodo (marshaller) con input=(recetario)
 		return recetario;
 	}
@@ -131,8 +134,8 @@ public class Methods {
         jaxbM.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,Boolean.TRUE);
           //jaxbM.setProperty("com.sun.xml.bind.xmlDeclaration", false);
           // Escribiendo en un fichero
-        String directorio = System.getProperty("user.dir");
-        File XMLfile = new File( directorio + "/Recetario.xml");
+        String directorio = System.getProperty("user.home");
+        File XMLfile = new File( directorio + "/Recursos/Recetario.xml");
         jaxbM.marshal(r1, XMLfile);
     	// TODO: llamar al primer metodo (marshaller) con input=(rec1)
     	
@@ -141,7 +144,7 @@ public class Methods {
 
 	@WebMethod(operationName = "importarReceta")
     public String importarReceta(@WebParam(name = "ruta") String ruta) throws JAXBException {
-		Recetario r1 = new Recetario();
+		Recetario r1 = obtenerRecetario();
 		JAXBContext jaxbC = JAXBContext.newInstance(Receta.class);
     	Unmarshaller jaxbU = jaxbC.createUnmarshaller();
     	File fichero = new File(ruta);
