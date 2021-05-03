@@ -160,18 +160,16 @@ public class App
 				System.out.println("Introduzca las instrucciones de la receta:\n");
 				String instrucciones = br.readLine();
 				r1.setInstrucciones(instrucciones);
-				System.out.println(r1);
-				rec = methods.obtenerRecetario();
-				rec = methods.generarReceta(r1);
-				System.out.println(rec);
+				String mensaje = methods.generarReceta(r1);
+				System.out.println(mensaje);
 				break;
 			case(5):
 				System.out.println("Introduce el nombre del archivo para exportar el contenido (empezando por /Recursos)\n");
 				String ruta = br.readLine();	
 				System.out.println("Exportando Recetario...\n");
 				String directorio = System.getProperty("user.home");
-				String mensaje = methods.exportarRecetario( directorio + ruta);
-			    System.out.println(mensaje);
+				String mensaje1 = methods.exportarRecetario( directorio + ruta);
+			    System.out.println(mensaje1);
 				break;
 			case(6):
 				System.out.println("Introduce el nombre de la receta \n");
@@ -190,7 +188,8 @@ public class App
 				System.out.println("Introduzca la ruta absoluta para importar Recetario\n");
 				String ruta2 = br.readLine();
 				System.out.println("Importando Recetario...\n");
-				methods.importarRecetario(ruta2);				
+				String mensaje3 = methods.importarRecetario(ruta2);
+				System.out.println(mensaje3);
 				break;
 
 			case(8):
@@ -198,7 +197,8 @@ public class App
 				rec = methods.obtenerRecetario();
 				String ruta3 = br.readLine();
 				System.out.println("Importando Receta...\n");
-				rec = methods.importarReceta(ruta3);
+				String mensaje2 = methods.importarReceta(ruta3);
+				System.out.println(mensaje2);
 				break;
 			case(9):
 				System.out.println("Saliendo del recetario");

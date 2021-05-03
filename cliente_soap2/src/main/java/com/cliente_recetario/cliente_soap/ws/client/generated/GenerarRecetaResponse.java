@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="return" type="{http://soap.Pr2_SWII/}recetario" minOccurs="0"/&gt;
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -33,17 +33,17 @@ import javax.xml.bind.annotation.XmlType;
 public class GenerarRecetaResponse {
 
     @XmlElement(name = "return")
-    protected Recetario _return;
+    protected String _return;
 
     /**
      * Obtiene el valor de la propiedad return.
      * 
      * @return
      *     possible object is
-     *     {@link Recetario }
+     *     {@link String }
      *     
      */
-    public Recetario getReturn() {
+    public String getReturn() {
         return _return;
     }
 
@@ -52,10 +52,10 @@ public class GenerarRecetaResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link Recetario }
+     *     {@link String }
      *     
      */
-    public void setReturn(Recetario value) {
+    public void setReturn(String value) {
         this._return = value;
     }
 

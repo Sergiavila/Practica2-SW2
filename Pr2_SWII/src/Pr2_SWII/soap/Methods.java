@@ -65,7 +65,7 @@ public class Methods {
 	}
 	
 	@WebMethod(operationName = "generarReceta")
-	public Recetario generarReceta(@WebParam(name = "receta") Receta receta) throws JAXBException{
+	public String generarReceta(@WebParam(name = "receta") Receta receta) throws JAXBException{
 		Recetario recetario = obtenerRecetario();
 		recetario.addReceta(receta);
 		JAXBContext jaxbC = JAXBContext.newInstance(Recetario.class);
@@ -79,7 +79,7 @@ public class Methods {
 		File XMLfile = new File( directorio + "/Recursos/Recetario.xml");
 	    jaxbM.marshal(recetario, XMLfile);
 		// TODO: llamar al primer metodo (marshaller) con input=(recetario)
-		return recetario;
+		return "Receta añadida";
 	}
 	
 	
@@ -122,7 +122,7 @@ public class Methods {
     }
     
 	@WebMethod(operationName = "importarRecetario")
-    public Recetario importarRecetario(@WebParam(name = "ruta") String ruta) throws JAXBException {
+    public String importarRecetario(@WebParam(name = "ruta") String ruta) throws JAXBException {
     	JAXBContext jaxbC = JAXBContext.newInstance(Recetario.class);
     	Unmarshaller jaxbU = jaxbC.createUnmarshaller();
     	File fichero = new File(ruta);
@@ -140,11 +140,11 @@ public class Methods {
         jaxbM.marshal(r1, XMLfile);
     	// TODO: llamar al primer metodo (marshaller) con input=(rec1)
     	
-    	return r1;
+    	return "Recetario Importado";
     }
 
 	@WebMethod(operationName = "importarReceta")
-    public Recetario importarReceta( @WebParam(name = "ruta") String ruta) throws JAXBException {
+    public String importarReceta( @WebParam(name = "ruta") String ruta) throws JAXBException {
 		JAXBContext jaxbC = JAXBContext.newInstance(Receta.class);
     	Unmarshaller jaxbU = jaxbC.createUnmarshaller();
     	File fichero = new File(ruta);
@@ -166,7 +166,7 @@ public class Methods {
     	// Recetario recetario = obtenerRecetario() 
     	// Anadir a recetario la receta rec1
     	// Llamar al primer metodo (marshaller) con input=(recetario)
-    	return recetario;
+    	return "Receta Importada";
     }
 
 }
