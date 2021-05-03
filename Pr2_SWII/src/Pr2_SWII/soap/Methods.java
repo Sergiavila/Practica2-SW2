@@ -65,7 +65,8 @@ public class Methods {
 	}
 	
 	@WebMethod(operationName = "generarReceta")
-	public Recetario generarReceta(@WebParam(name = "recetario") Recetario recetario, @WebParam(name = "receta") Receta receta) throws JAXBException{
+	public Recetario generarReceta(@WebParam(name = "receta") Receta receta) throws JAXBException{
+		Recetario recetario = obtenerRecetario();
 		recetario.addReceta(receta);
 		JAXBContext jaxbC = JAXBContext.newInstance(Recetario.class);
 	        // Creamos el JAXBMarshaller
@@ -143,11 +144,12 @@ public class Methods {
     }
 
 	@WebMethod(operationName = "importarReceta")
-    public Recetario importarReceta(@WebParam(name = "recetario") Recetario recetario, @WebParam(name = "ruta") String ruta) throws JAXBException {
+    public Recetario importarReceta( @WebParam(name = "ruta") String ruta) throws JAXBException {
 		JAXBContext jaxbC = JAXBContext.newInstance(Receta.class);
     	Unmarshaller jaxbU = jaxbC.createUnmarshaller();
     	File fichero = new File(ruta);
     	Receta rec1 = (Receta) jaxbU.unmarshal(fichero);
+    	Recetario recetario = obtenerRecetario();
     	recetario.addReceta(rec1);
     	
     	JAXBContext jaxbC1 = JAXBContext.newInstance(Recetario.class);    	
