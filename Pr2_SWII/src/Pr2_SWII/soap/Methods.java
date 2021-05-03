@@ -65,10 +65,9 @@ public class Methods {
 	}
 	
 	@WebMethod(operationName = "generarReceta")
-	public Recetario generarReceta(@WebParam(name = "receta") Receta receta) throws JAXBException{
-		Recetario recetario = obtenerRecetario();
+	public Recetario generarReceta(@WebParam(name = "recetario") Recetario recetario, @WebParam(name = "receta") Receta receta) throws JAXBException{
 		recetario.addReceta(receta);
-		JAXBContext jaxbC = JAXBContext.newInstance(Receta.class);
+		JAXBContext jaxbC = JAXBContext.newInstance(Recetario.class);
 	        // Creamos el JAXBMarshaller
 	    Marshaller jaxbM = jaxbC.createMarshaller();
 	        // Formateo bonito
@@ -127,6 +126,7 @@ public class Methods {
     	Unmarshaller jaxbU = jaxbC.createUnmarshaller();
     	File fichero = new File(ruta);
         Recetario r1 = (Recetario) jaxbU.unmarshal(fichero);
+        
     	JAXBContext jaxbC1 = JAXBContext.newInstance(Recetario.class);
           // Creamos el JAXBMarshaller
         Marshaller jaxbM = jaxbC1.createMarshaller();
@@ -143,14 +143,14 @@ public class Methods {
     }
 
 	@WebMethod(operationName = "importarReceta")
-    public Recetario importarReceta(@WebParam(name = "ruta") String ruta) throws JAXBException {
+    public Recetario importarReceta(@WebParam(name = "recetario") Recetario recetario, @WebParam(name = "ruta") String ruta) throws JAXBException {
 		JAXBContext jaxbC = JAXBContext.newInstance(Receta.class);
     	Unmarshaller jaxbU = jaxbC.createUnmarshaller();
     	File fichero = new File(ruta);
     	Receta rec1 = (Receta) jaxbU.unmarshal(fichero);
-    	JAXBContext jaxbC1 = JAXBContext.newInstance(Receta.class);
-    	Recetario rec = obtenerRecetario();
-    	rec.addReceta(rec1);
+    	recetario.addReceta(rec1);
+    	
+    	JAXBContext jaxbC1 = JAXBContext.newInstance(Recetario.class);    	
         // Creamos el JAXBMarshaller
     	Marshaller jaxbM = jaxbC1.createMarshaller();
         // Formateo bonito
@@ -159,12 +159,12 @@ public class Methods {
         // Escribiendo en un fichero
     	String directorio = System.getProperty("user.home");
     	File XMLfile = new File( directorio + "/Recursos/Recetario.xml");
-    	jaxbM.marshal(rec, XMLfile);
+    	jaxbM.marshal(recetario, XMLfile);
     	// TODO:
     	// Recetario recetario = obtenerRecetario() 
     	// Anadir a recetario la receta rec1
     	// Llamar al primer metodo (marshaller) con input=(recetario)
-    	return rec;
+    	return recetario;
     }
 
 }

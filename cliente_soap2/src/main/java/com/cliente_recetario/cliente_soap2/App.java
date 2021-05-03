@@ -160,7 +160,9 @@ public class App
 				System.out.println("Introduzca las instrucciones de la receta:\n");
 				String instrucciones = br.readLine();
 				r1.setInstrucciones(instrucciones);
-				rec = methods.generarReceta(r1);
+				System.out.println(r1);
+				rec = methods.obtenerRecetario();
+				rec = methods.generarReceta(rec,r1);
 				System.out.println(rec);
 				break;
 			case(5):
@@ -193,9 +195,10 @@ public class App
 
 			case(8):
 				System.out.println("Introduzca la ruta absoluta para importar la Receta\n");
+				rec = methods.obtenerRecetario();
 				String ruta3 = br.readLine();
 				System.out.println("Importando Receta...\n");
-				methods.importarReceta(ruta3);
+				rec = methods.importarReceta(rec, ruta3);
 				break;
 			case(9):
 				System.out.println("Saliendo del recetario");
