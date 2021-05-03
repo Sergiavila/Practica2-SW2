@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="nombreReceta" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="nombreReceta" type="{http://soap.Pr2_SWII/}receta" minOccurs="0"/&gt;
  *         &lt;element name="path" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class ExportarReceta {
 
-    protected String nombreReceta;
+    protected Receta nombreReceta;
     protected String path;
 
     /**
@@ -41,10 +41,10 @@ public class ExportarReceta {
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link Receta }
      *     
      */
-    public String getNombreReceta() {
+    public Receta getNombreReceta() {
         return nombreReceta;
     }
 
@@ -53,10 +53,10 @@ public class ExportarReceta {
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link Receta }
      *     
      */
-    public void setNombreReceta(String value) {
+    public void setNombreReceta(Receta value) {
         this.nombreReceta = value;
     }
 
