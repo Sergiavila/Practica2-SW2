@@ -19,14 +19,6 @@ import javax.xml.bind.Marshaller;
 @WebService(serviceName = "RecetarioService")
 public class Methods {
 
-	// Hacer metodo para crear nuevo recetario (VACIO) en ultimo paso
-	// (para asi poder ver de momento la obtencion)
-	
-	/*
-	
-	 */
-	
-	
 	
 	@WebMethod(operationName = "iniciarRecetario")
 	public Recetario inicializarRecetario() throws JAXBException {
@@ -81,7 +73,6 @@ public class Methods {
 	    String directorio = System.getProperty("user.home");
 		File XMLfile = new File( directorio + "/Recursos/Recetario.xml");
 	    jaxbM.marshal(recetario, XMLfile);
-		// TODO: llamar al primer metodo (marshaller) con input=(recetario)
 		return "Receta añadida";
 	}
 	
@@ -140,9 +131,7 @@ public class Methods {
           // Escribiendo en un fichero
         String directorio = System.getProperty("user.home");
         File XMLfile = new File( directorio + "/Recursos/Recetario.xml");
-        jaxbM.marshal(r1, XMLfile);
-    	// TODO: llamar al primer metodo (marshaller) con input=(rec1)
-    	
+        jaxbM.marshal(r1, XMLfile);    	
     	return "Recetario Importado";
     }
 
@@ -165,10 +154,6 @@ public class Methods {
     	String directorio = System.getProperty("user.home");
     	File XMLfile = new File( directorio + "/Recursos/Recetario.xml");
     	jaxbM.marshal(recetario, XMLfile);
-    	// TODO:
-    	// Recetario recetario = obtenerRecetario() 
-    	// Anadir a recetario la receta rec1
-    	// Llamar al primer metodo (marshaller) con input=(recetario)
     	return "Receta Importada";
     }
 

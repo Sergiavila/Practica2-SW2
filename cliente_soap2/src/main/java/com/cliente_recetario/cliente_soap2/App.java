@@ -25,64 +25,6 @@ public class App
     public static void main( String[] args ) throws JAXBException_Exception, IOException{
     	RecetarioService rs = new RecetarioService();
         Methods methods = rs.getMethodsPort();
-        
-        // case 0
-        
-	    /*Recetario recetario = methods.obtenerRecetario();
-	    System.out.println(recetario);*/
-    	
-        
-        // case 1
-        
-       /* Receta receta = methods.obtenerReceta("Crema de calabaza");
-	    System.out.println(receta);*/
-    	
-        
-        // case 2
-      /* Recetario recetario1 = new Recetario();
-        Receta r1 = new Receta();
-        r1.setDificultad("facil");
-        r1.setTipo("mediterranea");
-        r1.setNombreReceta("Nueva receta");
-        r1.setInstrucciones("Instrucciones de la nueva receta");
-        Ingrediente i1 = new Ingrediente();
-        i1.setCantidad("500g");
-        i1.setNombreIngrediente("Pollo");
-        Ingrediente i2 = new Ingrediente();
-        i2.setCantidad("500g");
-        i2.setNombreIngrediente("Arroz");
-        ArrayList<Ingrediente> ingredientes = new ArrayList<>();
-        ingredientes.add(i1); ingredientes.add(i2);
-        // TODO: (SIEMPRE, NO BORRAR) en Receta.java: find-replace( Receta.Ingredientes -> ArrayList<Ingrediente>)
-        r1.setIngredientes(ingredientes);
-        recetario1 = methods.generarReceta(r1);
-        System.out.println(recetario1);*/
-        
-        
-        
-        // case 3 (exportar recetario)
-	    
-	    /*String mensaje = methods.exportarRecetario("C:/Users/Sergio/Desktop/Universidad/4ºAño/SW2/Practica2/Pr2_SWII/RecetarioExportado.xml");
-	    System.out.println(mensaje);*/
-	    
-	    
-	    // case 3.1 (exportar receta)
-	    /*
-	    String mensajeReceta = methods.exportarReceta("Crema de calabaza" , "./RecetaExportada.xml");
-	    System.out.println(mensajeReceta);
-	    */
-	    
-	    // case 4 (importar recetario)
-	    /*
-	    String mensaje = methods.importarRecetario("./RecetarioSmall.xml")
-	    System.out.println(mensaje);
-	    */
-	    
-	    // case 4.1 (importar receta)
-	    /*
-	    String mensaje = methods.importarReceta("./RecetaSmall.xml")
-	    System.out.println(mensaje);
-	    */
 		int opcion = 0;
 		boolean cerrojo = true;
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -114,20 +56,29 @@ public class App
 				System.out.println("Recetario iniciado\n");
 				break;
 			case(2):
+				try {
 				System.out.println("Obteniendo Recetario...\n");
 			    rec = methods.obtenerRecetario();
 		    	System.out.println(rec);
+				} catch(Exception ex){
+					System.out.println("El recetario está vacío");
+				}
 				break;
 			case(3):
+				try {
 				System.out.println("Indica el nombre de la receta que quiera visualizar\n");
 				String nombre = br.readLine();
 				System.out.println("Obteniendo Receta...\n");
 				receta = methods.obtenerReceta(nombre);
 				System.out.println(receta);
+				}catch(Exception ex) {
+					System.out.println("La receta no existe en el recetario");
+				}
 				break;
 			case (4):
 				Receta r1 = new Receta();
 				ArrayList<Ingrediente> ingredientes1 = new ArrayList<Ingrediente>();
+				try {
 				System.out.println("Introduzca la receta que desea importar\n");
 				System.out.println("Introduzca la dificultad de la receta:\n");
 				String dificultad = br.readLine();
@@ -162,16 +113,24 @@ public class App
 				r1.setInstrucciones(instrucciones);
 				String mensaje = methods.generarReceta(r1);
 				System.out.println(mensaje);
+				}catch(Exception ex) {
+					System.out.println("Algo ha ido mal, introduce tu receta de nuevo");
+				}
 				break;
 			case(5):
+				try {
 				System.out.println("Introduce el nombre del archivo para exportar el contenido (empezando por /Recursos)\n");
 				String ruta = br.readLine();	
 				System.out.println("Exportando Recetario...\n");
 				String directorio = System.getProperty("user.home");
 				String mensaje1 = methods.exportarRecetario( directorio + ruta);
 			    System.out.println(mensaje1);
+				}catch(Exception ex) {
+					System.out.println("Ruta no válida");
+				}
 				break;
 			case(6):
+				try {
 				System.out.println("Introduce el nombre de la receta \n");
 				String nombre1 = br.readLine();
 				receta = methods.obtenerReceta(nombre1);
@@ -181,24 +140,35 @@ public class App
 				String directorio1 = System.getProperty("user.home");
 				String mensajeReceta = methods.exportarReceta(receta , directorio1 + ruta1);
 			    System.out.println(mensajeReceta);
+				}catch (Exception ex) {
+					System.out.println("La receta no existe o la ruta no es válida");
+				}
 				
 				break;
 				
 			case(7):
+				try {
 				System.out.println("Introduzca la ruta absoluta para importar Recetario\n");
 				String ruta2 = br.readLine();
 				System.out.println("Importando Recetario...\n");
 				String mensaje3 = methods.importarRecetario(ruta2);
 				System.out.println(mensaje3);
+				}catch(Exception ex) {
+					System.out.println("Ruta no válida");
+				}
 				break;
 
 			case(8):
+				try {
 				System.out.println("Introduzca la ruta absoluta para importar la Receta\n");
 				rec = methods.obtenerRecetario();
 				String ruta3 = br.readLine();
 				System.out.println("Importando Receta...\n");
 				String mensaje2 = methods.importarReceta(ruta3);
 				System.out.println(mensaje2);
+				}catch(Exception ex) {
+					System.out.println("Ruta no válida");
+				}
 				break;
 			case(9):
 				System.out.println("Saliendo del recetario");
